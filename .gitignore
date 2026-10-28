@@ -1,0 +1,6 @@
+# Configuración local de herramientas (apunta a rutas de esta PC)
+.claude/
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store

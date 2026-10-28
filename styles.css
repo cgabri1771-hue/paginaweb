@@ -1,0 +1,103 @@
+:root {
+  --fondo: #f5f7fa;
+  --tarjeta: #ffffff;
+  --texto: #1f2933;
+  --suave: #637381;
+  --acento: #2f6f4f;
+  --borde: #d5dde5;
+  --peligro: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+header {
+  background: var(--acento);
+  color: #fff;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+header h1 { margin: 0; font-size: 1.5rem; }
+
+main { max-width: 760px; margin: 0 auto; padding: 1rem; }
+
+[hidden] { display: none !important; }
+
+.barra { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+
+.aviso { color: var(--suave); font-size: 0.9rem; }
+
+button {
+  background: var(--acento);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button.secundario { background: transparent; color: var(--acento); border: 1px solid var(--acento); }
+button.peligro { background: var(--peligro); }
+
+.tarjetas { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tarjeta img { width: 80px; height: 80px; object-fit: cover; border-radius: 6px; }
+.tarjeta .info { flex: 1; min-width: 160px; }
+.tarjeta h3 { margin: 0; }
+.tarjeta p { margin: 0.2rem 0 0; color: var(--suave); font-size: 0.9rem; }
+.tarjeta .botones { display: flex; gap: 0.5rem; }
+
+fieldset {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+legend { font-weight: 600; padding: 0 0.5rem; }
+
+label { display: grid; gap: 0.25rem; font-size: 0.95rem; }
+input, select, textarea {
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  width: 100%;
+}
+
+.fotos { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.foto { position: relative; }
+.foto img { width: 110px; height: 110px; object-fit: cover; border-radius: 6px; display: block; }
+.foto button {
+  position: absolute; top: 4px; right: 4px;
+  padding: 0 0.45rem; border-radius: 50%;
+  background: var(--peligro);
+}
+
+.acciones { display: flex; gap: 0.75rem; }
+
+@media (min-width: 600px) {
+  fieldset { grid-template-columns: 1fr 1fr; }
+  legend { grid-column: 1 / -1; }
+  fieldset label:has(textarea) { grid-column: 1 / -1; }
+  fieldset:has(.fotos) { display: block; }
+}

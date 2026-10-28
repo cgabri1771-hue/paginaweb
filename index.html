@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan de mantenimiento anual para tu casa</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Generá un plan de mantenimiento anual para tu casa</h1>
+  </header>
+
+  <main>
+    <!-- Vista 1: lista de propiedades guardadas -->
+    <section id="vista-lista">
+      <div class="barra">
+        <h2>Mis propiedades</h2>
+        <button id="btn-nueva" type="button">+ Nueva propiedad</button>
+      </div>
+      <p id="lista-vacia" class="aviso">Todavía no cargaste ninguna propiedad.</p>
+      <ul id="lista" class="tarjetas"></ul>
+    </section>
+
+    <!-- Vista 2: formulario de alta / edición -->
+    <section id="vista-form" hidden>
+      <h2 id="form-titulo">Nueva propiedad</h2>
+      <form id="form">
+        <fieldset>
+          <legend>Datos generales</legend>
+          <label>Nombre para identificarla
+            <input name="nombre" required maxlength="60" placeholder="Ej: Casa de Palermo">
+          </label>
+          <label>Antigüedad (años)
+            <input name="antiguedad" type="number" min="0" max="300" required>
+          </label>
+          <label>Tipo de construcción
+            <select name="tipo" required>
+              <option value="">Elegí una opción</option>
+              <option>Casa</option>
+              <option>Departamento</option>
+              <option>PH</option>
+              <option>Dúplex</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Zona geográfica</legend>
+          <label>País <input name="pais" required></label>
+          <label>Provincia <input name="provincia" required></label>
+          <label>Localidad <input name="localidad" required></label>
+          <label>Código postal <input name="cp" required maxlength="10"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Construcción exterior</legend>
+          <label>Tipo de techo
+            <select name="techo">
+              <option value="">Elegí una opción</option>
+              <option>Losa</option><option>Tejas</option><option>Chapa</option>
+              <option>Membrana / terraza</option><option>Otro</option>
+            </select>
+          </label>
+          <label>Material de fachada
+            <select name="fachada">
+              <option value="">Elegí una opción</option>
+              <option>Revoque pintado</option><option>Ladrillo a la vista</option>
+              <option>Piedra</option><option>Madera</option><option>Otro</option>
+            </select>
+          </label>
+          <label>Jardín o patio
+            <select name="jardin"><option>No</option><option>Sí</option></select>
+          </label>
+          <label>Pileta
+            <select name="pileta"><option>No</option><option>Sí</option></select>
+          </label>
+          <label>Cochera
+            <select name="cochera"><option>No</option><option>Sí</option></select>
+          </label>
+          <label>Otros detalles del exterior
+            <textarea name="exteriorNotas" rows="3"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Construcción interior</legend>
+          <label>Tipo de piso
+            <select name="piso">
+              <option value="">Elegí una opción</option>
+              <option>Cerámico / porcelanato</option><option>Madera</option>
+              <option>Alfombra</option><option>Cemento alisado</option><option>Otro</option>
+            </select>
+          </label>
+          <label>Calefacción
+            <select name="calefaccion">
+              <option value="">Elegí una opción</option>
+              <option>Gas natural</option><option>Eléctrica</option>
+              <option>Losa radiante</option><option>Leña</option><option>Ninguna</option>
+            </select>
+          </label>
+          <label>Aire acondicionado
+            <select name="aire"><option>No</option><option>Sí</option></select>
+          </label>
+          <label>Instalación eléctrica
+            <select name="electrica">
+              <option value="">Elegí una opción</option>
+              <option>Original</option><option>Renovada</option>
+            </select>
+          </label>
+          <label>Cantidad de baños
+            <input name="banos" type="number" min="0" max="20">
+          </label>
+          <label>Otros detalles del interior
+            <textarea name="interiorNotas" rows="3"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Fotos de la propiedad (hasta 5)</legend>
+          <input id="fotos-input" type="file" accept="image/*" multiple>
+          <p id="fotos-contador" class="aviso"></p>
+          <div id="fotos-previa" class="fotos"></div>
+        </fieldset>
+
+        <div class="acciones">
+          <button type="submit">Guardar</button>
+          <button id="btn-cancelar" type="button" class="secundario">Cancelar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
